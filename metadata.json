@@ -1,0 +1,6 @@
+{
+  "name": "Mundo Equino App",
+  "description": "Una landing page interactiva y pulida para Mundo Equino con alternador de opciones de diseño visual.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
