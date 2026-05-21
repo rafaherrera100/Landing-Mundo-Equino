@@ -65,33 +65,12 @@ export default function Hero({ variant }: { variant: ThemeVariant }) {
             {/* Close-up cinematic horse presentation */}
             <div className={`relative w-full lg:w-[90%] h-[400px] sm:h-[500px] lg:h-[650px] ${theme.rounded} ring-1 ${theme.borderSoft.replace('border-', 'ring-')} overflow-hidden bg-[#2a241e]`}>
               <img 
-                src="https://image.pollinations.ai/prompt/cinematic%20portrait%20of%20a%20beautiful%20brown%20horse%20face%20showing%20eye%20and%20mane,%20vintage%20warm%20lighting,%20elegant%20editorial%20style,%20photorealistic?width=1000&height=1200&nologo=true&seed=88" 
-                alt="Detalle de caballo de cerca" 
-                className={`w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-1000`}
+                src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?auto=format&fit=crop&w=1000&q=80" 
+                alt="Detalle de caballo" 
+                className={`w-full h-full object-cover opacity-90 sepia-[.2] contrast-110 saturate-[1.2] hover:scale-105 transition-transform duration-1000`}
               />
               {/* Subtle inner shadow for luxury feel */}
               <div className={`absolute inset-0 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05)] pointer-events-none`}></div>
-              
-              {/* Floating UI element - Minimalist and Editorial */}
-              <div className={`absolute -left-4 sm:-left-12 bottom-12 py-5 px-6 ${theme.bgCard} ${theme.rounded} shadow-2xl border ${theme.borderSoft} flex flex-col gap-3 backdrop-blur-md bg-opacity-95 max-w-xs transition-transform duration-500 hover:-translate-y-1`}>
-                <div className="flex items-center gap-4">
-                  <div className={`w-10 h-10 ${theme.rounded} ${theme.bgPrimarySoft} flex items-center justify-center shrink-0`}>
-                    <div className={`w-3 h-3 border-2 ${theme.borderPrimary} rotate-45`}></div>
-                  </div>
-                  <div>
-                    <p className={`text-[9px] uppercase tracking-widest font-bold ${theme.textPrimary}`}>Ficha Inteligente</p>
-                    <p className={`text-sm font-normal italic ${theme.textHeading} mt-1 ${theme.headingFont}`}>Análisis Completado</p>
-                  </div>
-                </div>
-                <div className={`h-px w-full ${theme.borderSoft}`}></div>
-                <div className="flex justify-between items-center px-1">
-                  <div className="flex -space-x-2">
-                    <div className={`w-6 h-6 rounded-full border-2 ${variant === 'minimal' ? 'border-[#FDFCFB]' : 'border-white'} ${theme.bgPrimarySoft} flex items-center justify-center`}><span className={`text-[8px] font-bold ${theme.textPrimary}`}>IA</span></div>
-                    <div className={`w-6 h-6 rounded-full border-2 ${variant === 'minimal' ? 'border-[#FDFCFB]' : 'border-white'} bg-slate-100 flex items-center justify-center`}><span className={`text-[8px] font-bold text-slate-500`}>ADN</span></div>
-                  </div>
-                  <span className={`text-[9px] font-bold ${theme.textPrimary} uppercase tracking-widest`}>Verificado</span>
-                </div>
-              </div>
             </div>
           </motion.div>
         </div>
