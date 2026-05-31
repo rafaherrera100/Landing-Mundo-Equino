@@ -10,20 +10,26 @@ import {
   Syringe, 
   Activity, 
   Ruler, 
-  PieChart 
+  PieChart,
+  Dna,
+  ClipboardList,
+  Package
 } from 'lucide-react';
 
 const features = [
   { title: 'Inventario de Ejemplares', description: 'Ficha completa por caballo: fotos, genealogía, propietario e historial.', icon: Database },
-  { title: 'Ingreso con IA', description: 'Registra un ejemplar con voz o texto y la IA completa su perfil automáticamente.', icon: Sparkles },
-  { title: 'Control de Alimentación', description: 'Planes nutricionales, raciones diarias y alertas de suministros.', icon: Leaf },
+  { title: 'Ingreso con IA', description: 'Registra un ejemplar subiendo una foto de su registro y la IA completa su perfil automáticamente.', icon: Sparkles },
   { title: 'Sanidad Veterinaria', description: 'Vacunaciones, tratamientos e historial médico completo por animal.', icon: Stethoscope },
+  { title: 'Genética Predictiva IA', description: 'Banco genético impulsado por Inteligencia Artificial para predecir la probabilidad de éxito fenomenológico en los cruces.', icon: Dna },
   { title: 'Genética & Pedigree', description: 'Árbol genealógico, coeficiente de consanguinidad y selección de reproductores.', icon: Network },
+  { title: 'Trazabilidad de Montas', description: 'Gestión total de reproductores, seguimiento de saltos y reportes automáticos de monta.', icon: ClipboardList },
+  { title: 'Control de Alimentación', description: 'Planes nutricionales, raciones diarias y alertas de suministros.', icon: Leaf },
+  { title: 'Gestión de Insumos', description: 'Control de inventario y costo de heno, concentrado y viruta en tiempo real.', icon: Package },
   { title: 'Reproducción', description: 'Ciclos, montas, gestaciones, partos y registro detallado de crías.', icon: Heart },
   { title: 'Purgas y Desparasitación', description: 'Calendario automático, alertas y registro de productos aplicados.', icon: Syringe },
   { title: 'Entrenamiento', description: 'Bitácora de sesiones, rendimiento, metas y progreso por ejemplar.', icon: Activity },
   { title: 'Alzada y Herrada', description: 'Control de medidas, historial de herrajes y recordatorios automáticos.', icon: Ruler },
-  { title: 'Finanzas por Ejemplar', description: 'Costos e ingresos personalizados por caballo y reportes del criadero.', icon: PieChart }
+  { title: 'Finanzas Multi-nivel', description: 'Control de gastos e ingresos detallado por ejemplar, sede y consolidado del criadero.', icon: PieChart }
 ];
 
 export default function Features({ variant }: { variant: ThemeVariant }) {
@@ -38,7 +44,7 @@ export default function Features({ variant }: { variant: ThemeVariant }) {
             Todo lo que tu criadero necesita, en un solo lugar.
           </p>
           <p className={`mt-6 text-lg leading-relaxed ${theme.textBody}`}>
-            Diez módulos especializados pensados para la realidad del criador colombiano — de la ficha del ejemplar al balance financiero.
+            Trece módulos especializados pensados para la realidad del criador colombiano — de la trazabilidad y genética predictiva al balance financiero.
           </p>
         </div>
 

@@ -3,9 +3,31 @@ import { Check } from 'lucide-react';
 import { motion } from 'motion/react';
 
 const plans = [
-  { name: 'Gratuito', price: '$0', description: 'Comienza sin costo y explora la plataforma.', features: ['Hasta 10 caballos', 'Acceso a todos los módulos', 'IA limitada', 'Soporte por email'], cta: 'Comenzar Gratis', popular: false },
-  { name: 'Esencial', price: 'Popular', description: 'Todo lo necesario para crecer tu criadero.', features: ['Caballos ilimitados', 'Todos los módulos activos', 'IA ilimitada', 'Reportes y exportación PDF', 'Soporte prioritario'], cta: 'Elegir Esencial', popular: true },
-  { name: 'Profesional', price: 'Avanzado', description: 'Para operaciones y equipos grandes.', features: ['Todo lo del plan Esencial', 'Multi-usuario / equipo', 'API de integración', 'Genética avanzada', 'Análisis financiero avanzado', 'Soporte dedicado WhatsApp'], cta: 'Elegir Profesional', popular: false }
+  { 
+    name: 'Gratuito', 
+    price: '$0', 
+    description: 'Tiempo limitado de 30 días para explorar la plataforma.', 
+    features: ['Tiempo limitado de 30 días', 'IA para ingreso de datos', 'Acceso a los módulos base', 'Soporte por email'], 
+    cta: 'Comenzar Gratis', 
+    popular: false 
+  },
+  { 
+    name: 'Popular', 
+    price: 'Popular', 
+    description: 'Todo lo necesario para hacer seguimiento completo a tu criadero.', 
+    features: ['Tiempo ilimitado', 'Ejemplares ilimitados', 'Todos los módulos activos', 'IA para lectura de registros por foto', 'Soporte prioritario'], 
+    cta: 'Elegir Popular', 
+    popular: true 
+  },
+  { 
+    name: 'Avanzado', 
+    price: 'Avanzado', 
+    description: 'Para operaciones conectadas con predicción y manejo genético.', 
+    features: ['IA para simulación de genética', 'Manejo inteligente de reproductores', 'Todo lo del plan Popular', 'Multi-usuario / equipo', 'Análisis financiero avanzado'], 
+    cta: 'En construcción',
+    disabled: true,
+    popular: false 
+  }
 ];
 
 export default function Pricing({ variant }: { variant: ThemeVariant }) {
@@ -61,14 +83,16 @@ export default function Pricing({ variant }: { variant: ThemeVariant }) {
                 </ul>
               </div>
               <a
-                href="https://app.mundo-equino.com/register"
-                target="_blank" 
-                rel="noopener noreferrer"
-                className={`mt-10 px-6 py-4 text-center block ${
-                  plan.popular 
+                href={plan.disabled ? undefined : "https://app.mundo-equino.com/register"}
+                target={plan.disabled ? undefined : "_blank"} 
+                rel={plan.disabled ? undefined : "noopener noreferrer"}
+                className={`mt-10 px-6 py-4 text-center block ${theme.rounded} ${
+                  plan.disabled
+                    ? 'bg-slate-200 text-slate-500 cursor-not-allowed opacity-60'
+                    : plan.popular 
                     ? theme.buttonPrimary 
                     : theme.buttonSecondary
-                } ${theme.rounded}`}
+                }`}
               >
                 {plan.cta}
               </a>
