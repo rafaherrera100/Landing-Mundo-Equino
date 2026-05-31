@@ -6,7 +6,7 @@ export default function Hero({ variant }: { variant: ThemeVariant }) {
   const theme = getThemeClasses(variant);
 
   return (
-    <div className={`relative overflow-hidden ${variant === 'minimal' ? theme.bgSection : theme.bgPage} pb-16 pt-16 sm:pb-24 sm:pt-24 lg:pb-32 lg:pt-32`}>
+    <div className={`relative overflow-hidden ${variant === 'minimal' ? theme.bgSection : theme.bgPage} pb-12 pt-12 sm:pb-16 sm:pt-16 lg:pb-20 lg:pt-20`}>
       <div className={`absolute inset-0 opacity-10 flex items-center justify-center pointer-events-none overflow-hidden`}>
          <span className={`${theme.headingFont} text-[40rem] leading-none italic ${theme.textPrimary}`}>M</span>
       </div>

@@ -34,7 +34,7 @@ export default function Pricing({ variant }: { variant: ThemeVariant }) {
   const theme = getThemeClasses(variant);
 
   return (
-    <section id="precios" className={`${theme.bgPage} py-24 sm:py-32`}>
+    <section id="precios" className={`${theme.bgPage} py-12 sm:py-16 lg:py-20`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center mb-16">
           <h2 className={`text-[10px] uppercase tracking-[0.3em] font-bold ${theme.textPrimary}`}>Precios justos</h2>

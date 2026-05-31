@@ -36,7 +36,7 @@ export default function Features({ variant }: { variant: ThemeVariant }) {
   const theme = getThemeClasses(variant);
 
   return (
-    <section id="caracteristicas" className={`${theme.bgPage} py-24 sm:py-32`}>
+    <section id="caracteristicas" className={`${theme.bgPage} py-12 sm:py-16 lg:py-20`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center mb-16">
           <h2 className={`text-[10px] uppercase tracking-[0.3em] font-bold ${theme.textPrimary}`}>Plataforma integral</h2>
