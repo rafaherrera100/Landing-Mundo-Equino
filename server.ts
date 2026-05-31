@@ -13,7 +13,7 @@ async function startServer() {
   // API para contacto via Resend
   app.post("/api/contact", async (req, res) => {
     try {
-      const { name, email, message } = req.body;
+      const { name, email, phone, message } = req.body;
 
       if (!process.env.RESEND_API_KEY) {
         return res.status(500).json({ error: "Falta configurar RESEND_API_KEY" });
@@ -27,6 +27,7 @@ async function startServer() {
         subject: `Nuevo contacto de Mundo Equino: ${name}`,
         html: `
           <p><strong>De:</strong> ${name} (${email})</p>
+          <p><strong>Celular:</strong> ${phone || 'No proporcionado'}</p>
           <p><strong>Mensaje:</strong></p>
           <p>${message}</p>
         `,

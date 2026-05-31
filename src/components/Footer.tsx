@@ -17,6 +17,7 @@ export default function Footer({ variant }: { variant: ThemeVariant }) {
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
+      phone: formData.get('phone'),
       message: formData.get('message'),
     };
 
@@ -158,6 +159,10 @@ export default function Footer({ variant }: { variant: ThemeVariant }) {
                       <div>
                         <label className={`block text-xs font-bold uppercase tracking-wider mb-2 ${theme.textBody}`}>Email</label>
                         <input type="email" name="email" required className={`w-full px-4 py-3 rounded-md bg-transparent border ${theme.borderSoft} ${theme.textHeading} focus:outline-none focus:ring-1 focus:ring-current`} placeholder="info@criadero.com" />
+                      </div>
+                      <div>
+                        <label className={`block text-xs font-bold uppercase tracking-wider mb-2 ${theme.textBody}`}>Celular (Opcional)</label>
+                        <input type="tel" name="phone" className={`w-full px-4 py-3 rounded-md bg-transparent border ${theme.borderSoft} ${theme.textHeading} focus:outline-none focus:ring-1 focus:ring-current`} placeholder="+57 300 000 0000" />
                       </div>
                       <div>
                         <label className={`block text-xs font-bold uppercase tracking-wider mb-2 ${theme.textBody}`}>Mensaje</label>

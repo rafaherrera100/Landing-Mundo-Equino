@@ -9,6 +9,7 @@ const plans = [
     description: 'Tiempo limitado de 30 días para explorar la plataforma.', 
     features: ['Tiempo limitado de 30 días', 'IA para ingreso de datos', 'Acceso a los módulos base', 'Soporte por email'], 
     cta: 'Comenzar Gratis', 
+    link: 'https://app.mundo-equino.com/register',
     popular: false 
   },
   { 
@@ -17,6 +18,7 @@ const plans = [
     description: 'Todo lo necesario para hacer seguimiento completo a tu criadero.', 
     features: ['Tiempo ilimitado', 'Ejemplares ilimitados', 'Todos los módulos activos', 'IA para lectura de registros por foto', 'Soporte prioritario'], 
     cta: 'Elegir Popular', 
+    link: 'https://app.mundo-equino.com/register2',
     popular: true 
   },
   { 
@@ -83,7 +85,7 @@ export default function Pricing({ variant }: { variant: ThemeVariant }) {
                 </ul>
               </div>
               <a
-                href={plan.disabled ? undefined : "https://app.mundo-equino.com/register"}
+                href={plan.disabled ? undefined : plan.link}
                 target={plan.disabled ? undefined : "_blank"} 
                 rel={plan.disabled ? undefined : "noopener noreferrer"}
                 className={`mt-10 px-6 py-4 text-center block ${theme.rounded} ${
