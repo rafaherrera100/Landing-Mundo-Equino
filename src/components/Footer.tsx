@@ -5,6 +5,42 @@ import { X, Instagram, CheckCircle2, Loader2 } from 'lucide-react';
 export default function Footer({ variant }: { variant: ThemeVariant }) {
   const theme = getThemeClasses(variant);
   const [activeModal, setActiveModal] = useState<'privacy' | 'terms' | 'contact' | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      
+      if (response.ok) {
+        setIsSuccess(true);
+        form.reset();
+      } else {
+        alert("Falta configurar la API Key de Resend en el servidor.");
+      }
+    } catch (error) {
+      alert("Error de conexión al enviar el formulario.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -91,27 +127,49 @@ export default function Footer({ variant }: { variant: ThemeVariant }) {
             {activeModal === 'contact' && (
               <div>
                 <h2 className={`text-2xl font-bold mb-6 ${theme.textHeading} ${theme.headingFont}`}>Contacto</h2>
-                <p className={`${theme.textBody} mb-6`}>Déjenos sus datos y nos comunicaremos a la brevedad con usted.</p>
-                <form action="https://formsubmit.co/rafa_h@hotmail.com" method="POST" target="_blank" className="flex flex-col gap-4">
-                  <div>
-                    <label className={`block text-xs font-bold uppercase tracking-wider mb-2 ${theme.textBody}`}>Nombre</label>
-                    <input type="text" name="name" required className={`w-full px-4 py-3 rounded-md bg-transparent border ${theme.borderSoft} ${theme.textHeading} focus:outline-none focus:ring-1 focus:ring-current`} placeholder="Su nombre o criadero" />
+                {isSuccess ? (
+                  <div className="flex flex-col items-center justify-center py-8 text-center">
+                    <CheckCircle2 size={48} className="text-emerald-500 mb-4" />
+                    <h3 className={`text-xl font-bold mb-2 ${theme.textHeading}`}>¡Mensaje Enviado!</h3>
+                    <p className={`${theme.textBody}`}>
+                      Gracias por contactarnos. Nos comunicaremos contigo a la brevedad.
+                    </p>
+                    <button 
+                      onClick={() => {
+                        setIsSuccess(false);
+                        setActiveModal(null);
+                      }}
+                      className={`mt-6 px-6 py-2 text-sm font-semibold ${theme.buttonPrimary} rounded-md`}
+                    >
+                      Cerrar
+                    </button>
                   </div>
-                  <div>
-                    <label className={`block text-xs font-bold uppercase tracking-wider mb-2 ${theme.textBody}`}>Email</label>
-                    <input type="email" name="email" required className={`w-full px-4 py-3 rounded-md bg-transparent border ${theme.borderSoft} ${theme.textHeading} focus:outline-none focus:ring-1 focus:ring-current`} placeholder="info@criadero.com" />
-                  </div>
-                  <div>
-                    <label className={`block text-xs font-bold uppercase tracking-wider mb-2 ${theme.textBody}`}>Mensaje</label>
-                    <textarea name="message" rows={4} required className={`w-full px-4 py-3 rounded-md bg-transparent border ${theme.borderSoft} ${theme.textHeading} focus:outline-none focus:ring-1 focus:ring-current`} placeholder="¿En qué podemos ayudarle?"></textarea>
-                  </div>
-                  <input type="hidden" name="_subject" value="Nuevo contacto desde la web de Mundo Equino" />
-                  
-                  <button type="submit" className={`mt-4 w-full py-4 font-semibold text-sm flex items-center justify-center gap-2 ${theme.buttonPrimary} rounded-md transition-all`}>
-                    Enviar Mensaje
-                  </button>
-                  <p className="text-[10px] text-center mt-2 opacity-60">Se abrirá una nueva pestaña para confirmar el envío seguro de FormSubmit.</p>
-                </form>
+                ) : (
+                  <>
+                    <p className={`${theme.textBody} mb-6`}>Déjenos sus datos y nos comunicaremos a la brevedad con usted.</p>
+                    <form 
+                      onSubmit={handleContactSubmit}
+                      className="flex flex-col gap-4"
+                    >
+                      <div>
+                        <label className={`block text-xs font-bold uppercase tracking-wider mb-2 ${theme.textBody}`}>Nombre</label>
+                        <input type="text" name="name" required className={`w-full px-4 py-3 rounded-md bg-transparent border ${theme.borderSoft} ${theme.textHeading} focus:outline-none focus:ring-1 focus:ring-current`} placeholder="Su nombre o criadero" />
+                      </div>
+                      <div>
+                        <label className={`block text-xs font-bold uppercase tracking-wider mb-2 ${theme.textBody}`}>Email</label>
+                        <input type="email" name="email" required className={`w-full px-4 py-3 rounded-md bg-transparent border ${theme.borderSoft} ${theme.textHeading} focus:outline-none focus:ring-1 focus:ring-current`} placeholder="info@criadero.com" />
+                      </div>
+                      <div>
+                        <label className={`block text-xs font-bold uppercase tracking-wider mb-2 ${theme.textBody}`}>Mensaje</label>
+                        <textarea name="message" rows={4} required className={`w-full px-4 py-3 rounded-md bg-transparent border ${theme.borderSoft} ${theme.textHeading} focus:outline-none focus:ring-1 focus:ring-current`} placeholder="¿En qué podemos ayudarle?"></textarea>
+                      </div>
+                      <button type="submit" disabled={isSubmitting} className={`mt-4 w-full py-4 font-semibold text-sm flex items-center justify-center gap-2 ${theme.buttonPrimary} rounded-md transition-all disabled:opacity-70 disabled:cursor-not-allowed`}>
+                        {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : null}
+                        {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+                      </button>
+                    </form>
+                  </>
+                )}
               </div>
             )}
           </div>
