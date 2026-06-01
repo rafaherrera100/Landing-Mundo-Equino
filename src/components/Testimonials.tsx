@@ -1,9 +1,9 @@
 import { getThemeClasses, ThemeVariant } from '../theme';
 
 const testimonials = [
-  { quote: "Llevábamos las fichas en cuadernos. Ahora cada potro tiene su historial completo, su pedigree y sus costos en un solo lugar. Cambió por completo el criadero.", author: "Criador de Paso Fino" },
-  { quote: "La IA me ahorra horas registrando ejemplares. Subo una foto del registro y la ficha queda lista. Para un criadero de 80 caballos es invaluable.", author: "Criador de Criollo Colombiano" },
-  { quote: "El módulo de reproducción y el árbol genealógico nos permiten planear cruzamientos con criterio. Y el control financiero por ejemplar fue la cereza del pastel.", author: "Administrador de Pesebrera" }
+  { quote: "Llevábamos las fichas en cuadernos. Ahora cada potro tiene su historial completo, su pedigree y sus costos en un solo lugar. Cambió por completo el criadero.", author: "Rafael Herrera - Criadero R&H" },
+  { quote: "La IA me ahorra horas registrando ejemplares. Subo una foto del registro y la ficha queda lista. Para un criadero de 80 caballos es invaluable.", author: "Mauricio Palacio - Criadero Las Iguanas" },
+  { quote: "El módulo de reproducción y el árbol genealógico nos permiten planear cruzamientos con criterio. Y el control financiero por ejemplar fue la cereza del pastel.", author: "Diego Otoya - Criadero La Cabaña" }
 ];
 
 export default function Testimonials({ variant }: { variant: ThemeVariant }) {

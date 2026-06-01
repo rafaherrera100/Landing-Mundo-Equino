@@ -19,6 +19,14 @@ const faqs = [
   {
     question: "¿Qué pasa si cometo un error o necesito editar un dato post-IA?",
     answer: "El sistema siempre te permitirá previsualizar los datos que la Inteligencia Artificial encontró antes de guardarlos. Si identificas algún error de lectura debido a una foto borrosa, podrás editarlo manualmente de forma muy sencilla."
+  },
+  {
+    question: "¿Cómo funciona el análisis inteligente de cruces?",
+    answer: "Nuestro modelo de análisis de genética y cruces toma en cuenta la información ingresada y verificada por expertos sobre reproductores y yeguas donantes. El sistema evalúa detalladamente la genética considerando mínimo tres generaciones de ancestros, calculando así una probabilidad de éxito proyectada para la cría. Esto te ayuda a tomar decisiones reproductivas más inteligentes y mejor fundamentadas."
+  },
+  {
+    question: "¿En qué consiste el módulo de reproductores?",
+    answer: "Este módulo está diseñado para el control total de los servicios de tus caballos. Registra cada toma de servicio del reproductor, ofrece trazabilidad completa al proceso de envío de semen, y te permite generar y almacenar de forma segura todos los reportes de monta correspondientes."
   }
 ];
 
