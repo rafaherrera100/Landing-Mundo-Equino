@@ -34,7 +34,8 @@ export default function Footer({ variant }: { variant: ThemeVariant }) {
         setIsSuccess(true);
         form.reset();
       } else {
-        alert("Falta configurar la API Key de Resend en el servidor.");
+        const errData = await response.json().catch(() => ({}));
+        alert(`Error: ${errData.error || "Falta configurar la API Key de Resend en el servidor o Endpoint no encontrado."}`);
       }
     } catch (error) {
       alert("Error de conexión al enviar el formulario.");
