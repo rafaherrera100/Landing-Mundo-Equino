@@ -66,7 +66,7 @@ export default function Hero({ variant }: { variant: ThemeVariant }) {
             <div className={`relative w-full lg:w-[90%] h-[400px] sm:h-[500px] lg:h-[650px] ${theme.rounded} ring-1 ${theme.borderSoft.replace('border-', 'ring-')} overflow-hidden bg-[#2a241e]`}>
               <img 
                 src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?auto=format&fit=crop&w=1000&q=80" 
-                alt="Detalle de caballo" 
+                alt="Cabeza de Caballo" 
                 className={`w-full h-full object-cover opacity-90 sepia-[.2] contrast-110 saturate-[1.2] hover:scale-105 transition-transform duration-1000`}
               />
               {/* Subtle inner shadow for luxury feel */}
