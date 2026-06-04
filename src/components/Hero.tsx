@@ -65,9 +65,9 @@ export default function Hero({ variant }: { variant: ThemeVariant }) {
             {/* Close-up cinematic horse presentation */}
             <div className={`relative w-full lg:w-[90%] h-[400px] sm:h-[500px] lg:h-[650px] ${theme.rounded} ring-1 ${theme.borderSoft.replace('border-', 'ring-')} overflow-hidden bg-[#2a241e]`}>
               <img 
-                src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?auto=format&fit=crop&w=1000&q=80" 
-                alt="Cabeza de Caballo" 
-                className={`w-full h-full object-cover opacity-90 sepia-[.2] contrast-110 saturate-[1.2] hover:scale-105 transition-transform duration-1000`}
+                src="https://upload.wikimedia.org/wikipedia/commons/6/68/Cabalo044eue.jpg" 
+                alt="Cabeza de Caballo Criollo Colombiano Paso Fino" 
+                className={`w-full h-full object-cover object-[center_30%] opacity-90 sepia-[.15] contrast-[1.15] saturate-[1.1] hover:scale-105 transition-transform duration-1000`}
               />
               {/* Subtle inner shadow for luxury feel */}
               <div className={`absolute inset-0 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05)] pointer-events-none`}></div>
